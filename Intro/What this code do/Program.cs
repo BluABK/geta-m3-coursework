@@ -23,7 +23,7 @@ namespace What_this_code_do
                 foreach (var character in text ?? string.Empty)
                 {
                     // Cast char in string to int, resulting in its ASCII value.
-                    counts[(int)character]++;
+                    counts[(int)Char.ToLower(character)]++;
                 }
 
                 // Loop over range:
