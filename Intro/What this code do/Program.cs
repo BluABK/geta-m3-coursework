@@ -14,6 +14,8 @@ namespace What_this_code_do
             string text = "something";
             // Keep track of total amount of characters (used for %).
             int charTotal = 0;
+            // Right align field width to the spacing of 8 chars (Max: "100.00 %").
+            const int FieldWidthRightAligned = 8;
 
             // While input text is not NULL or blank:
             while (!string.IsNullOrWhiteSpace(text))
@@ -44,7 +46,7 @@ namespace What_this_code_do
                         double charCountPercentage = 100 * (double)counts[i] / charTotal;
 
                         // Print character and amount to screen.
-                        Console.WriteLine($"{character} - {charCountPercentage:F2}%");
+                        Console.WriteLine($"{character} - {charCountPercentage,FieldWidthRightAligned:F2} %");
                     }
                 }
             }
