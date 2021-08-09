@@ -12,6 +12,8 @@ namespace What_this_code_do
             var counts = new int[range];
             // Define text string and assign it a default value.
             string text = "something";
+            // Keep track of total amount of characters (used for %).
+            int charTotal = 0;
 
             // While input text is not NULL or blank:
             while (!string.IsNullOrWhiteSpace(text))
@@ -20,10 +22,13 @@ namespace What_this_code_do
                 text = Console.ReadLine();
 
                 // For each character in input (that is non-empty):
-                foreach (var character in text ?? string.Empty)
+                foreach (var character in text.ToLower() ?? string.Empty)
                 {
-                    // Cast char in string to int, resulting in its ASCII value.
-                    counts[(int)Char.ToLower(character)]++;
+                    // Cast lower cased char in string to int, resulting in its ASCII value.
+                    counts[(int)character]++;
+
+                    // Increment total char count (used for %).
+                    charTotal++;
                 }
 
                 // Loop over range:
@@ -34,8 +39,12 @@ namespace What_this_code_do
                     {
                         // Cast the index value as ASCII to char.
                         var character = (char)i;
+
+                        // Calculate percentage.
+                        double charCountPercentage = 100 * (double)counts[i] / charTotal;
+
                         // Print character and amount to screen.
-                        Console.WriteLine(character + " - " + counts[i]);
+                        Console.WriteLine($"{character} - {charCountPercentage:F2}%");
                     }
                 }
             }
