@@ -20,8 +20,6 @@ namespace What_this_code_do
             string text = "something";
             // Keep track of total amount of characters (used for %).
             int charTotal = 0;
-            // Right align field width to the spacing of 8 chars (Max: "100.00 %").
-            const int FieldWidthRightAligned = 8;
 
             // While input text is not NULL or blank:
             while (!string.IsNullOrWhiteSpace(text))
@@ -32,31 +30,41 @@ namespace What_this_code_do
                 // Update the char counts.
                 charTotal = UpdateCharCounts(counts, text, charTotal);
 
-                // Loop over Range:
-                for (int i = 0; i < Range; i++)
-                {
-                    // If item in array counts at index i has entry.
-                    if (counts[i] > 0)
-                    {
-                        // Cast the index value as ASCII to char.
-                        char character = (char)i;
-
-                        // Calculate percentage.
-                        double charCountPercentage = 100 * (double)counts[i] / charTotal;
-
-                        // Print character and amount to screen, on the form "[X|XX|XXX].XX %".
-                        Console.WriteLine($"{character} - {charCountPercentage,FieldWidthRightAligned:F2} %");
-                    }
-                }
+                // Print the character counts to screen.
+                ShowCounts(Range, counts, charTotal);
             }
         }
         /**
-         * Update character counts.
-         *
-         * Takes an int array of counts, a string of input and the total character count var.
-         *
-         * Updates the counts array and returns the updated total character count.
+         * Print the character counts to display.
          */
+        private static void ShowCounts(int Range, int[] counts, int charTotal)
+        {
+            // const int FieldWidthAlignment = fieldWidthAlignment;
+            // Loop over Range:
+            for (int i = 0; i < Range; i++)
+            {
+                // If item in array counts at index i has entry.
+                if (counts[i] > 0)
+                {
+                    // Cast the index value as ASCII to char.
+                    char character = (char)i;
+
+                    // Calculate percentage.
+                    double charCountPercentage = 100 * (double)counts[i] / charTotal;
+
+                    // Print character and amount to screen, on the form "[X|XX|XXX].XX %", right-aligned (8 spaces).
+                    Console.WriteLine($"{character} - {charCountPercentage,8:F2} %");
+                }
+            }
+        }
+
+        /**
+        * Update character counts.
+        *
+        * Takes an int array of counts, a string of input and the total character count var.
+        *
+        * Updates the counts array and returns the updated total character count.
+        */
         private static int UpdateCharCounts(int[] counts, string text, int charTotal)
         {
             // For each character in input (that is non-empty):
