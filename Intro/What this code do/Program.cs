@@ -14,6 +14,16 @@ namespace What_this_code_do
         {
             // Define counts Range to most of ASCII table, except the final 5 symbols.
             const int Range = 250;
+
+            // While valid input from user, read input, update the char count and display the result.
+            ReadInputAndUpdateCharCounts(Range);
+        }
+
+        /**
+         * Reads input from user, updates the char counts and finally displays the result.
+         */
+        private static void ReadInputAndUpdateCharCounts(int Range)
+        {
             // Define an int array counts of size Range.
             int[] counts = new int[Range];
             // Define text string and assign it a default value.
@@ -34,9 +44,10 @@ namespace What_this_code_do
                 ShowCounts(Range, counts, charTotal);
             }
         }
+
         /**
-         * Print the character counts to display.
-         */
+        * Print the character counts to display.
+        */
         private static void ShowCounts(int Range, int[] counts, int charTotal)
         {
             // const int FieldWidthAlignment = fieldWidthAlignment;
