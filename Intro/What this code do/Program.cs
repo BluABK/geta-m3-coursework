@@ -29,15 +29,8 @@ namespace What_this_code_do
                 // Read input.
                 text = Console.ReadLine();
 
-                // For each character in input (that is non-empty):
-                foreach (var character in text.ToLower() ?? string.Empty)
-                {
-                    // Cast lower cased char in string to int, resulting in its ASCII value.
-                    counts[(int)character]++;
-
-                    // Increment total char count (used for %).
-                    charTotal++;
-                }
+                // Update the char counts.
+                charTotal = UpdateCharCounts(counts, text, charTotal);
 
                 // Loop over Range:
                 for (int i = 0; i < Range; i++)
@@ -56,6 +49,27 @@ namespace What_this_code_do
                     }
                 }
             }
+        }
+        /**
+         * Update character counts.
+         *
+         * Takes an int array of counts, a string of input and the total character count var.
+         *
+         * Updates the counts array and returns the updated total character count.
+         */
+        private static int UpdateCharCounts(int[] counts, string text, int charTotal)
+        {
+            // For each character in input (that is non-empty):
+            foreach (var character in text.ToLower() ?? string.Empty)
+            {
+                // Cast lower cased char in string to int, resulting in its ASCII value.
+                counts[(int)character]++;
+
+                // Increment total char count (used for %).
+                charTotal++;
+            }
+
+            return charTotal;
         }
     }
 }
