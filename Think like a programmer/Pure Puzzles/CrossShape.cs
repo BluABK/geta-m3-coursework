@@ -43,15 +43,7 @@ namespace Pure_Puzzles
                 singleOuterSidePaddingCount = maxOuterSidePadding - i;
 
                 // If first row: 0, else: relative maths.
-                //int innerPaddingCount = i == 0 ? 0 : (symbolCount / 2) + 4;
-                if (i == 0)
-                {
-                    innerPaddingCount = 0;
-                }
-                else
-                {
-                    innerPaddingCount = i * 4;
-                }
+                innerPaddingCount = i == 0 ? 0 : i * 4;
 
                 // Pad lhs.
                 PrintPadding(singleOuterSidePaddingCount);

@@ -25,7 +25,7 @@ namespace Pure_Puzzles
             MyTask2_3 task2_3 = new MyTask2_3();
 
             Console.WriteLine("Task 2-3:");
-            task2_3.PrintShape(16);
+            task2_3.PrintShape(8);
 
             // Add trailing newline to avoid clutter after exiting.
             Console.WriteLine();
