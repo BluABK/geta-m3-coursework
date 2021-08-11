@@ -16,9 +16,8 @@ namespace Pure_Puzzles
      */
     class MyTask2_1
     {
-        public void Run()
+        public void PrintShape(int symbolCount)
         {
-            int symbolCount = 8;
             int rows = symbolCount / 2;
             int rowSymbolCount = symbolCount;
             int paddingCount = 0;
@@ -26,8 +25,10 @@ namespace Pure_Puzzles
             // For each row.
             for (int i = 0; i < rows; i++)
             {
+                int sidePaddingCount = (symbolCount - rowSymbolCount) / 2;
+
                 // Pad lhs.
-                printPadding( (symbolCount - rowSymbolCount) / 2 );
+                PrintPadding(sidePaddingCount);
 
                 // Print current line of symbols.
                 for (int j = 0; j < rowSymbolCount; j++)
@@ -36,17 +37,21 @@ namespace Pure_Puzzles
                 }
 
                 // Pad rhs.
-                printPadding((symbolCount - rowSymbolCount) / 2);
+                PrintPadding(sidePaddingCount);
 
+                // Print newline.
                 Console.WriteLine();
 
+                // Decrement amount of symbols for next row by 2.
                 rowSymbolCount -= 2;
+
+                // Increment amount of whitespace padding for next row by 2.
                 paddingCount += 2;
 
             }
         }
 
-        public void printPadding(int paddingCount)
+        public void PrintPadding(int paddingCount)
         {
             for (int i = 0; i < paddingCount; i++)
             {
