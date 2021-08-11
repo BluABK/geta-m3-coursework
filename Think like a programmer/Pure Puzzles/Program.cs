@@ -11,7 +11,13 @@ namespace Pure_Puzzles
             Console.WriteLine("Task 2-1:");
             task2_1.PrintShape(8);
 
-            task2_1.PrintShape(64);
+            // Add vertical padding between tasks for increased readability.
+            Console.WriteLine();
+
+            MyTask2_2 task2_2 = new MyTask2_2();
+
+            Console.WriteLine("Task 2-2:");
+            task2_2.PrintShape(8);
 
             // Add trailing newline to avoid clutter after exiting.
             Console.WriteLine();

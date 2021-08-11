@@ -5,6 +5,10 @@ namespace Pure_Puzzles
     /**
      * <summary>
      * 2-1 Write a program that produces the following shape:
+     *      ##
+     *     ####
+     *    ######
+     *   ########
      *   ########
      *    ######
      *     ####
@@ -14,11 +18,13 @@ namespace Pure_Puzzles
      * Only cw allowed is: Console.Write("#"), Console.Write(" ") and Console.WriteLine(...)
      * </summary>
      */
-    class MyTask2_1
+    class MyTask2_2
     {
         public void PrintShape(int symbolCount)
         {
             PyramidShape pyramidShape = new PyramidShape();
+            
+            pyramidShape.Print(symbolCount);
             pyramidShape.PrintUpsideDown(symbolCount);
         }
     }
