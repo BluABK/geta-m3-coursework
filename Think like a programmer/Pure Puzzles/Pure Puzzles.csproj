@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrossShape.cs" />
     <Compile Include="MyTask2_1.cs" />
+    <Compile Include="MyTask2_3.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MyTask2-2.cs" />
