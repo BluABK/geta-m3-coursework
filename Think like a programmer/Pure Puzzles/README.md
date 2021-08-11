@@ -41,8 +41,8 @@ identifying the length of the longest word, the greatest number of vowels
 in a word, and/or any other statistics you can think of.
  
 # Output
-Task 2-1:
 ```
+Task 2-1:
 ########
  ######
   ####
