@@ -24,18 +24,44 @@ namespace Pure_Puzzles
         {
             int rows = symbolCount / 2;
             int rowSymbolCount;
-            int paddingCount = symbolCount - 2;
             int innerPaddingCount;
             int singleOuterSidePaddingCount;
             int maxOuterSidePadding = rows - 1;
 
-            // FIXME: Top part
+            // Print top part:
+            rowSymbolCount = 2;
             // For each row.
-            for (int i = 0; i < rows; i++)
+            for (int i = rows-1; i >= 0; i--)
             {
+                singleOuterSidePaddingCount = maxOuterSidePadding - i;
+
+                // If first row: 0, else: relative maths.
+                //innerPaddingCount = i < rows-1 ? (rows-i) * 4 : 0;
+                innerPaddingCount = i == 0 ? 0 : i * 4;
+
+                // Pad lhs.
+                PrintPadding(singleOuterSidePaddingCount);
+
+                // Print current line of symbols: lhs.
+                PrintSymbols(rowSymbolCount / 2);
+
+                // Pad inner center.
+                PrintPadding(innerPaddingCount);
+
+                // Print current line of symbols: rhs.
+                PrintSymbols(rowSymbolCount / 2);
+
+                // Pad rhs.
+                PrintPadding(singleOuterSidePaddingCount);
+
+                // Print newline.
+                Console.WriteLine();
+
+                // Decrement amount of symbols for next row by 2.
+                rowSymbolCount += 2;
             }
 
-            // FIXME: Bottom part
+            // Print bottom part:
             rowSymbolCount = symbolCount;
             // For each row.
             for (int i = 0; i < rows; i++)
@@ -65,9 +91,6 @@ namespace Pure_Puzzles
 
                 // Decrement amount of symbols for next row by 2.
                 rowSymbolCount -= 2;
-
-                // Increment amount of whitespace padding for next row by 2.
-                paddingCount += 2;
             }
         }
 
