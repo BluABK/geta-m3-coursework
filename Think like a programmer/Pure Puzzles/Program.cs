@@ -29,6 +29,12 @@ namespace Pure_Puzzles
 
             // Add trailing newline to avoid clutter after exiting.
             Console.WriteLine();
+            
+            Console.WriteLine("Task 2-9:");
+            new MyTask2_9("Dette er en test altså så desåå");
+
+            // Add trailing newline to avoid clutter after exiting.
+            Console.WriteLine();
         }
     }
 }
